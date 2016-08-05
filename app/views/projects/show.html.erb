@@ -1,2 +1,236 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    .left {
+    float: left;
+		}
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;}
+    }
+
+    .container-flex {
+    max-width: 1040px;
+    margin-right: auto;
+    margin-left: auto;
+		}
+
+		.video1 {
+			padding: 20px 10px 20px;
+		}
+		
+		.projects_hero {
+			max-height: 345px;
+		}
+
+		.bold {
+    font-weight: bold;
+		}
+		
+		@media (min-width: 640px)
+		h1, .h1 {
+		    font-size: 48px;
+		    line-height: 50px;
+		}
+
+		.text {
+    font-weight: 500;
+    color: #80809E;
+    font-size: 15px; 
+  	}
+
+
+		.h1, h1 {
+			font-size: 36px;
+		}
+		
+		.h1, .h2, .h3, h1, h2, h3 {
+			margin-top: 20px;
+			margin-bottom: 0px;
+		}
+
+		.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+			font-family: inherit;
+			line-height: 1.1;
+			color: inherit;
+		}
+
+		.btn[class*="btn--"] {
+    	font-weight: bold;
+		}
+
+		.btn--large {
+	    font-size: 16px;
+	    padding: 18px 30px;
+		}
+		
+		.btn--green, .btn--like.btn--liked {
+	    background-color: #2BDE73;
+	    color: #FFFFFF;
+		}
+		
+		.btn {
+	    transition: all 0.2s ease-in-out;
+	    border-width: 2px;
+	    border-color: transparent;
+	    border-style: solid;
+	    border-radius: 6px;
+	    cursor: pointer;
+	    display: inline-block;
+	    font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+	    line-height: 1;
+	    text-align: center;
+		}
+
+		a, a:link a:visited, a:active, button, button:visited, button:active {
+	    color: #2752ff;
+	    text-decoration: none;
+		}
+
+		.button-space {
+			padding-top: 30px;
+    	padding-bottom: 34px;
+		}
+
+  </style>
+</head>
+<body>
+
+<section class="projects_hero">
+	<div class="container-flex px2">
+		<div class="col-sm-8 left video1" style="background-color:lavender;">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/PpM1LcszXO4" frameborder="0" allowfullscreen></iframe>
+		</div>
+	</div>
+
+	<div class="col-sm-4" style="background-color:lavender;">
+		<div class="col col-12 mb1 stat-item">
+			<div class="num h1 bold" data-backers-count="1207" id="backers_count"><data class="Project1997781445" data-format="number" data-value="1209" itemprop="Project[backers_count]">1,209</data></div>
+			<span class="text">backers</span>
+		</div>
+
+		<div class="col col-12 mb1 stat-item">
+			<div class="num h1 bold nowrap" data-goal="100000.0" data-percent-raised="1.13847" data-pledged="113847.0" data-ref-tag="hero" id="pledged">
+				<data class="Project1997781445" data-currency="USD" data-format="shorter_money" data-precision="0" data-value="113905.0" data-without_code="true" itemprop="Project[pledged]">RM113,905</data>
+				<span class="money usd project_currency_code"></span>
+			</div>
+				<span class="text">pledged of RM100,000 goal</span>
+			</div>
+
+		<div class="col col-12 stat-item">
+			<div class="ksr_page_timer poll stat" data-dynamic="5" data-end-time="2016-08-05T23:59:00-04:00">
+				<div class="num h1 bold">20</div>
+				<span class="text">hours to go</span>
+				</div>
+		</div>
+
+		<div class="col col-12 button-space">
+			<a class="btn btn--green btn--large" href="" id="button-back-this-proj" title="Back this project">Fund This Project</a>
+		</div>
+
+	</div>
+</section>
+
+<section class="projects_description">
+<div class="container-flex px2">
+<div class="col-sm-8 left" style="width: 70%;">
+      <h4><small>ABOUT THIS PROJECT</small></h4>
+      <hr>
+      <h2>The Creative Kitchen Helper</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Posted on, Sep 27, 2015.</h5>
+      <h5><span class="label label-danger">Science</span> <span class="label label-primary">Tech</span></h5><br>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <br><br>
+      
+      <h4>Leave a Comment:</h4>
+      <form role="form">
+        <div class="form-group">
+          <textarea class="form-control" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+      <br><br>
+      
+      <p><span class="badge">2</span> Comments:</p><br>
+      
+      <div class="row">
+        <div class="col-sm-2 text-center">
+          <img src="bandmember.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+        </div>
+        <div class="col-sm-10">
+          <h4>Anja <small>Sep 29, 2015, 9:12 PM</small></h4>
+          <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <br>
+        </div>
+        <div class="col-sm-2 text-center">
+          <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+        </div>
+        <div class="col-sm-10">
+          <h4>John Row <small>Sep 25, 2015, 8:25 PM</small></h4>
+          <p>I am so happy for you man! Finally. I am looking forward to read about your trendy life. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <br>
+          <p><span class="badge">1</span> Comment:</p><br>
+          <div class="row">
+            <div class="col-sm-2 text-center">
+              <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+            </div>
+            <div class="col-xs-10">
+              <h4>Nested Bro <small>Sep 25, 2015, 8:28 PM</small></h4>
+              <p>Me too! WOW!</p>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4>Endorsed By</h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">Home</a></li>
+        <li><a href="#section2">Friends</a></li>
+        <li><a href="#section3">Family</a></li>
+        <li><a href="#section3">Photos</a></li>
+      </ul><br>
+    </div>
+
+    
+
+
+</body>
+</html>
+
+
