@@ -4,7 +4,7 @@ class IndividualsController < ApplicationController
   end
 
   def create
-    @individual = Individual.new(params[:individual])
+    @individual = Individual.new(individuals_params)
     if @individual.valid?
       @individual.save
       redirect_to root_path
@@ -19,7 +19,7 @@ class IndividualsController < ApplicationController
 
   def update
     @individual = Individual.find(:id)
-    if @individual.update(params[:individual])
+    if @individual.update(individual_params)
       redirect_to individuals_path(:id)
     else
       redirect_to edit_individual_path(:id)
@@ -34,5 +34,10 @@ class IndividualsController < ApplicationController
     @individual = Individual.find(:id)
     @individual.destroy
     redirect_to root_path
+  end
+
+  def individuals_params
+    params[:individuals][:password_confirmation] = params[:individuals][:password]
+    params.require(:individuals).permit(:name,:email,:password,:password_confirmation)
   end
 end

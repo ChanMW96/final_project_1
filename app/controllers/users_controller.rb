@@ -1,22 +1,16 @@
 class UsersController < ApplicationController
   def new
-    if params[:choice] == 'user'
-      redirect_to new_users_path
-    elsif params[:choice] == 'company'
-      redirect_to new_companies_path
-    else
-      @user = User.new(params[:user])
+      @user = User.new
     end
   end
 
   def create
-    if params[:choice] == 'user'
-      redirect_to new_users_path
+    if params[:choice] == 'individual'
+      redirect_to new_individuals_path(params)
     elsif params[:choice] == 'company'
-      redirect_to new_companies_path
+      redirect_to new_companies_path(params)
     else
-      @user = User.new(params[:user])
-      byebug
+      @user = User.new(user_params)
       if @user.valid?
         @user.save
         redirect_to root_path
@@ -27,23 +21,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if params[:choice] == 'user'
-      redirect_to new_users_path
-    elsif params[:choice] == 'company'
-      redirect_to new_companies_path
-    else
       @user = User.find(:id)
     end
   end
 
   def update
-    if params[:choice] == 'user'
-      redirect_to new_users_path
-    elsif params[:choice] == 'company'
-      redirect_to new_companies_path
-    else
       @user = User.find(:id)
-      if @user.update(params[:user])
+      if @user.update(user_params)
         redirect_to users_path(:id)
       else
         redirect_to edit_user_path(:id)
@@ -52,23 +36,19 @@ class UsersController < ApplicationController
   end
 
   def show
-    if params[:choice] == 'user'
-      redirect_to new_users_path
-    elsif params[:choice] == 'company'
-      redirect_to new_companies_path
-    else
       @user = User.find(:id)
     end
   end
 
   def destroy
-    if params[:choice] == 'user'
-      redirect_to new_users_path
-    elsif params[:choice] == 'company'
-      redirect_to new_companies_path
-    else
     @user = User.find(:id)
     @user.destroy
     redirect_to root_path
+    end
   end
+
+  def user_params
+    params.require(:user).permit(:email)
+  end
+
 end

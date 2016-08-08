@@ -28,7 +28,7 @@ gem 'braintree'
 gem 'figaro'
 gem 'gon'
 gem 'searchkick'
-gem 'bcrypt'
+gem 'bcrypt-ruby'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -25,6 +25,9 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Log In</a></li>
+        <% if !session[:individual_id].nil? %>
+        <li ><a id='logout' href="#">Log Out</a></li>
+        <% end%>
         <li><a href="#">Register</a></li>
       </ul>
     </div>

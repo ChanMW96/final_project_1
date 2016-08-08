@@ -5,7 +5,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :description
       t.string :required_talents
       t.integer :company_id
-      t.integer :user_id
+      t.integer :individual_id
 
       t.timestamps null: false
     end
