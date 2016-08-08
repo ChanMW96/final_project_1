@@ -25,12 +25,6 @@
 	border-radius: 0 !important;
 }
 
-/*.navbar-form {
-	margin: 10px !important;
-	width: 268px !important;
-}*/
-
-
 @media (min-width: 768px) .searchbar {
   width: initial !important;
 }
@@ -39,24 +33,6 @@
 	width: 219px;
 }
 
-
-.footer {
-	background-color: #ddd;
-	color: white;
-}
-
 .navbar-inverse .navbar-nav>li>a {
 	padding: 18px;
-}
-
-.navbar-inverse .navbar-nav>.active>a {
-
-} 
-
-.navbar-inverse .navbar-nav>.active>a:focus {
-
-} 
-
-.navbar-inverse .navbar-nav>.active>a:hover {
-
 }
