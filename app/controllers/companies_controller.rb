@@ -7,6 +7,8 @@ class CompaniesController < ApplicationController
     @company = Company.new(params[:company])
     if @company.valid?
       @company.save
+     session[:user_id] = @company.id
+      session[:type] = 2
       redirect_to root_path
     else
       redirect_to new_company_path

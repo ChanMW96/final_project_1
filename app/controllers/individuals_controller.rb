@@ -7,6 +7,8 @@ class IndividualsController < ApplicationController
     @individual = Individual.new(individuals_params)
     if @individual.valid?
       @individual.save
+      session[:user_id] = @individual.id
+      session[:type] = 1
       redirect_to root_path
     else
       redirect_to new_individual_path
