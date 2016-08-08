@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def show
       @user = User.find(:id)
     end
-  end
+
 
   def destroy
     @user = User.find(:id)
