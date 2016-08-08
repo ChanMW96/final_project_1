@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(params[:company])
+    @company = Company.new(company_params)
     if @company.valid?
       @company.save
      session[:user_id] = @company.id
@@ -21,7 +21,7 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find(:id)
-    if @company.update(params[:company])
+    if @company.update(company_params)
       redirect_to companies_path(:id)
     else
       redirect_to edit_company_path(:id)
@@ -36,5 +36,10 @@ class CompaniesController < ApplicationController
     @company = Company.find(:id)
     @company.destroy
     redirect_to root_path
+  end
+
+  def company_params
+    params[:companies][:password_confirmation] = params[:companies][:password]
+    params.require(:companies).permit(:name,:email,:description,:logo,:introduction_video,:password,:password_confirmation)
   end
 end
