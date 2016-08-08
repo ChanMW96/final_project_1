@@ -1,11 +1,10 @@
 $(document).ready(function(){
 	$('#logout').click(function(e){
-		debugger
 		e.preventDefault();
 		$.ajax({
-			url: 'sessions',
+			url: '/sessions',
 			method:"DELETE",
-			success: function(){
+			fail: function(){
 				location.reload();
 			}
 		})

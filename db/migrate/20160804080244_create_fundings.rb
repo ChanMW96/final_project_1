@@ -4,6 +4,8 @@ class CreateFundings < ActiveRecord::Migration
       t.integer :amount
       t.integer :project_id
       t.integer :company_id
+      t.integer :user_id
+      t.integer :individual_id
 
       t.timestamps null: false
     end
