@@ -24,3 +24,22 @@
 	margin-bottom: 0 !important;
 	border-radius: 0 !important;
 }
+
+.profile_photo img {
+	height: 200px;
+    width: 50%;
+    margin: auto;
+}
+
+.img-center {
+	margin: 0 auto;
+}
+
+.top-buffer { 
+	margin-top: 40px;
+	display:flex;
+	align-items: center; 
+}
+
+
+
