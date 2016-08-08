@@ -26,6 +26,9 @@
 }
 
 
+.searchbar {
+	display: inline;
+
 .profile_photo img {
 	height: 200px;
     width: 50%;
@@ -44,30 +47,25 @@
 
 @media (min-width: 768px) .searchbar {
   width: initial !important;
+
 }
 
 #search-input {
 	width: 219px;
 }
 
+.navbar-inverse .navbar-nav>li>a {
+	padding: 18px;
+}
 
 .footer {
 	background-color: #ddd;
 	color: white;
 }
 
-.navbar-inverse .navbar-nav>li>a {
-	padding: 18px;
-}
-
-.navbar-inverse .navbar-nav>.active>a {
-
-} 
-
-.navbar-inverse .navbar-nav>.active>a:focus {
-
-} 
-
-.navbar-inverse .navbar-nav>.active>a:hover {
-
+@media (max-width: 992px) {
+	.searchbar {
+  		width: initial !important;
+  		display: none !important;
+  	}
 }
