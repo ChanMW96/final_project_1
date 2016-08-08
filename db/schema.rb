@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805020230) do
+ActiveRecord::Schema.define(version: 20160805070917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +27,11 @@ ActiveRecord::Schema.define(version: 20160805020230) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.string   "name"
     t.string   "description"
     t.string   "logo"
     t.string   "introduction_video"
     t.string   "link"
     t.string   "merchant_id"
-    t.string   "email"
     t.string   "contact_numbers"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -47,7 +45,14 @@ ActiveRecord::Schema.define(version: 20160805020230) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "individuals", force: :cascade do |t|
+    t.string  "name"
+    t.integer "age"
+    t.string  "address"
+  end
+
   create_table "projects", force: :cascade do |t|
+    t.string   "name"
     t.string   "description"
     t.string   "required_talents"
     t.integer  "company_id"
@@ -93,13 +98,10 @@ ActiveRecord::Schema.define(version: 20160805020230) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "age"
-    t.string   "address"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.string   "email",                          null: false
-    t.string   "encrypted_password", limit: 128, null: false
+    t.string   "encrypted_password", limit: 128
     t.string   "confirmation_token", limit: 128
     t.string   "remember_token",     limit: 128, null: false
   end
