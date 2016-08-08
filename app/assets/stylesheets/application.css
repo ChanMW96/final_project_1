@@ -25,7 +25,6 @@
 	border-radius: 0 !important;
 }
 
-
 .searchbar {
 	display: inline;
 
@@ -56,7 +55,9 @@
 
 .navbar-inverse .navbar-nav>li>a {
 	padding: 18px;
+
 }
+
 
 .footer {
 	background-color: #ddd;
@@ -69,3 +70,4 @@
   		display: none !important;
   	}
 }
+
