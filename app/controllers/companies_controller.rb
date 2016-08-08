@@ -27,7 +27,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    # @company = Company.find(:id)
+    @company = Company.find(:id)
   end
 
   def destroy
