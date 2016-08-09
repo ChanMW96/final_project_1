@@ -239,7 +239,7 @@
 		</div>
 
 		<div class="col col-12 button-space">
-			<button class="btn btn--green btn--large" id="button-back-this-proj" data-toggle="modal" data-target="#funding" title="Back this project">Fund This Project</a>
+			<button class="btn btn--green btn--large" id="button-back-this-proj" data-toggle="modal" data-target="#funding" title="Back this project">Fund This Project</button>
 		</div>
 		<div class="modal fade" id="funding" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
@@ -383,15 +383,47 @@
               <h3>Ruby Developer Needed!</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
               <p>
-                  <a href="#" class="btn btn-primary">Apply Now!</a> <a href="#" class="btn btn-default">More Info</a>
+                  <button class="btn btn-primary" data-toggle="modal" data-target="#applyModal">Apply Now!</button> <a href="#" class="btn btn-default">More Info</a>
               </p>
           </div>
-      	</div>
-        
+      	</div>    
     </div>
 </div>
 </div>
-    
+<div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Appy For : Ruby Developer</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form>
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">Email address</label>
+				    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+				  </div>
+				  <div class="form-group">
+				    <label for="message">Message</label>
+				    <textarea class="form-control" id="message" placeholder="Few words about yourself"></textarea>
+				  </div>
+				  <div class="checkbox">
+				    <label>
+				      <input type="checkbox"> Willing to volonteer
+				    </label>
+				  </div>
+				  <div class="form-group">				   
+				    <p>Once submited, all your info will be send to the owner of this project</p>
+				  </div>
+				</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Apply!</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>   
 
 
 </body>
