@@ -4,10 +4,6 @@ Rails.application.routes.draw do
   resources :users, controller: "users"
   resources :individuals, controller: "individuals"
   resources :companies, controller: "companies"
-#  get "/sign_in" => "clearance/sessions#new", as: "sign_in"
-#  delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
-#  get "/sign_up" => "clearance/users#new", as: "sign_up"
-
   resources :updates, controller: "updates"
   resources :fundings, controller: "fundings"
   resources :comments, controller: "comments"
@@ -16,10 +12,6 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  #ADDED FOR TESTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  get "users/show"
-  get "companies/show"
-  #ADDED FOR TESTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
   
   # The priority is based upon order of creation: first created -> highest priority.
