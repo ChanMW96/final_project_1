@@ -239,7 +239,29 @@
 		</div>
 
 		<div class="col col-12 button-space">
-			<a class="btn btn--green btn--large" href="" id="button-back-this-proj" title="Back this project">Fund This Project</a>
+			<button class="btn btn--green btn--large" id="button-back-this-proj" data-toggle="modal" data-target="#myModal" title="Back this project">Fund This Project</a>
+		</div>
+
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">How much would you like to fund?</h4>
+		      </div>
+		      <div class="modal-body">
+		        <%= form_for @funding do |f| %> 
+		        	<h4>RM <%= f.text_field :amount %></h4>
+		        	<%= f.hidden_field :project_id %>
+		        	<%= f.hidden_field :company_id %>
+				<% end %>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Proceed...</button>
+		      </div>
+		    </div>
+		  </div>
 		</div>
 
 		<div class="col-right col-4">
