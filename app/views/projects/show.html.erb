@@ -206,12 +206,12 @@
 			<div class="mobile-hide">
 				<div class="NS_projects__category_location ratio-16-9">
 					<a class="grey-dark mr2 nowrap" href="/discover/places/washington-dc?ref=city"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-						Washington, DC
+						<%= @project.location %>
 					</a>
 					<a class="grey-dark mr2 nowrap" href="/discover/categories/film%20&amp;%20video/documentary?ref=category"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
 						Documentary
 					</a>
-					<h2>Creating a Better Nation: A project that helps the poor</h2>
+					<h2><%= @project.heading %></h2>
 				</div>
 			</div>
 		</div>
@@ -219,21 +219,21 @@
 
 	<div class="col-sm-4">
 		<div class="col col-12 mb1 stat-item">
-			<div class="num h1 bold" data-backers-count="1207" id="backers_count"><data class="Project1997781445" data-format="number" data-value="1209" itemprop="Project[backers_count]">1,209</data></div>
+			<div class="num h1 bold" data-backers-count="1207" id="backers_count"><data class="Project1997781445" data-format="number" data-value="1209" itemprop="Project[backers_count]"><%= @project.fundings.count %></data></div>
 			<span class="text">backers</span>
 		</div>
 
 		<div class="col col-12 mb1 stat-item">
 			<div class="num h1 bold nowrap" data-goal="100000.0" data-percent-raised="1.13847" data-pledged="113847.0" data-ref-tag="hero" id="pledged">
-				<data class="Project1997781445" data-currency="USD" data-format="shorter_money" data-precision="0" data-value="113905.0" data-without_code="true" itemprop="Project[pledged]">RM113,905</data>
+				<data class="Project1997781445" data-currency="USD" data-format="shorter_money" data-precision="0" data-value="113905.0" data-without_code="true" itemprop="Project[pledged]">RM<%= @project.total_amount %></data>
 				<span class="money usd project_currency_code"></span>
 			</div>
-				<span class="text">pledged of RM100,000 goal</span>
+				<span class="text">pledged of RM<%= @project.goal %> goal</span>
 			</div>
 
 		<div class="col col-12 stat-item">
 			<div class="ksr_page_timer poll stat" data-dynamic="5" data-end-time="2016-08-05T23:59:00-04:00">
-				<div class="num h1 bold">20</div>
+				<div class="num h1 bold"><%= @project.time_left %></div>
 				<span class="text">hours to go</span>
 				</div>
 		</div>
@@ -250,12 +250,25 @@
 		<div class="col col-8">
 			
 			<div class="mobile-show center py1">
-				<h5 class="mb1">Project by </h5><h3 class="normal mb0"><a class="green-dark" href="/projects/ladiesnightanthology/ladies-night-anthology-vol-4-eat-it-up/creator_bio">GreenPeace</a></h3>
+				<h5 class="mb1">Project by </h5><h3 class="normal mb0"><a class="green-dark" href="/projects/ladiesnightanthology/ladies-night-anthology-vol-4-eat-it-up/creator_bio">
+				<% if !@individual.nil? %>
+					<%= @individual.name %>
+				<% else %>
+					<%= @company.name %>
+				<% end %>
+				</a></h3>
 			</div>
 			<div class="flag mobile-hide">
 				<p class="h5 mb0">
 					<span class="inline-block">
-					<span class="grey-dark">Kuala Lumpur</span>
+					<span class="grey-dark">
+					<% if !@individual.nil? %>
+						<%= @individual.address %>
+					<% else %>
+						<%= @company.address %>
+					<% end %>
+						
+					</span>
 					<span class="grey-dark">&nbsp;|&nbsp;</span>
 					</span>
 					<span class="inline-block">
@@ -265,7 +278,6 @@
 			</div>
 			<p class="h5 bold mobile-hide">
 			<a class="remote_modal_dialog full_bio mr2" data-modal-class="modal_project_by" data-modal-title="About the creator" href="/projects/ladiesnightanthology/ladies-night-anthology-vol-4-eat-it-up/creator_bio">See full bio</a>
-			<a class="remote_modal_dialog message_creator_modal_link" data-modal-class="modal_send_message" data-modal-title="Send a message to Ladies' Night Anthology" href="/projects/ladiesnightanthology/ladies-night-anthology-vol-4-eat-it-up/messages/new?message%5Bto%5D=ladiesnightanthology">Let's Talk</a>
 
 			</p>
 			</div>
@@ -280,7 +292,7 @@
 <div class="col-sm-8 left" style="width: 70%;">
       <h4><small>ABOUT THIS PROJECT</small></h4>
       <hr>
-      <h2>The Artic's Helper</h2>
+      <h2><%= @project.topic %></h2>
       <h5><span class="glyphicon glyphicon-time"></span> Posted on, Sep 27, 2015.</h5>
       <h5><span class="label label-danger">Science</span> <span class="label label-primary">Tech</span></h5><br>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -297,12 +309,12 @@
 
       
       <h4>Leave a Comment:</h4>
-      <form role="form">
+      <%= form_for :comment, url: comments_path, html: {role:"form"} do |f|%>
         <div class="form-group">
-          <textarea class="form-control" rows="3" required></textarea>
+          <%= text_area(:comment, :post, rows: 3,required: true, class: "form-control") %>
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
-      </form>
+        <%= f.submit 'Submit'%>
+      <% end %>
       <br><br>
       
       <p><span class="badge">2</span> Comments:</p><br>

@@ -18,6 +18,10 @@ class ProjectsController < ApplicationController
     }
   end
 
+  def send_email
+    MailingJob.perform_later(current_user,params[:msg])
+  end
+
   def new
     @project = Project.new
   end
