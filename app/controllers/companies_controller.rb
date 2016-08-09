@@ -7,6 +7,8 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     if @company.valid?
       @company.save
+      session[:user_id] = @company.id
+      session[:type] = 2
       redirect_to root_path
     else
       redirect_to new_company_path
@@ -14,24 +16,24 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    @company = Company.find(:id)
+    @company = Company.find(params[:id])
   end
 
   def update
-    @company = Company.find(:id)
+    @company = Company.find(params[:id])
     if @company.update(company_params)
-      redirect_to companies_path(:id)
+      redirect_to companies_path(params[:id])
     else
-      redirect_to edit_company_path(:id)
+      redirect_to edit_company_path(params[:id])
     end
   end
 
   def show
-    @company = Company.find(:id)
+    @company = Company.find(params[:id])
   end
 
   def destroy
-    @company = Company.find(:id)
+    @company = Company.find(params[:id])
     @company.destroy
     redirect_to root_path
   end
