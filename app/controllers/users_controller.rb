@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def new
       @user = User.new
-
+      @individual = Individual.new
+      @company = Company.new
   end
 
   def create
