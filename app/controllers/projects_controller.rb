@@ -50,6 +50,9 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project = Project.new
+    @individual = Individual.new
+    @company = Company.new
     @funding = Funding.new
   end
 
