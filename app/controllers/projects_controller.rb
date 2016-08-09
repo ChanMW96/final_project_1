@@ -46,6 +46,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @funding = Funding.new
   end
 
   def destroy

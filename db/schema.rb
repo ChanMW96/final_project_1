@@ -22,32 +22,29 @@ ActiveRecord::Schema.define(version: 20160805070917) do
     t.integer  "project_id"
     t.integer  "company_id"
     t.integer  "user_id"
-    t.integer  "individual_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
-    t.string   "password_digest"
     t.string   "description"
     t.string   "logo"
     t.string   "introduction_video"
+    t.string   "link"
+    t.string   "merchant_id"
+    t.string   "email"
+    t.string   "contact_numbers"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.string   "email",              null: false
   end
-
-  add_index "companies", ["email"], name: "index_companies_on_email", using: :btree
 
   create_table "fundings", force: :cascade do |t|
     t.integer  "amount"
     t.integer  "project_id"
     t.integer  "company_id"
-    t.integer  "user_id"
-    t.integer  "individual_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "individuals", force: :cascade do |t|
@@ -59,11 +56,10 @@ ActiveRecord::Schema.define(version: 20160805070917) do
   add_index "individuals", ["email"], name: "index_individuals_on_email", using: :btree
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name"
     t.string   "description"
     t.string   "required_talents"
     t.integer  "company_id"
-    t.integer  "individual_id"
+    t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
@@ -98,18 +94,25 @@ ActiveRecord::Schema.define(version: 20160805070917) do
   create_table "updates", force: :cascade do |t|
     t.string   "description"
     t.integer  "project_id"
+    t.integer  "user_id"
     t.integer  "company_id"
-    t.integer  "individual_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "email",      null: false
+    t.string   "name"
+    t.integer  "age"
+    t.string   "address"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "email",                          null: false
+    t.string   "encrypted_password", limit: 128, null: false
+    t.string   "confirmation_token", limit: 128
+    t.string   "remember_token",     limit: 128, null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end

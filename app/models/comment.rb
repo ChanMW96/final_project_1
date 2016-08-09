@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
-	belongs_to :individual, default: nil
-	belongs_to :company, default: nil
-	belongs_to :user, default: nil
-	belongs_to :project, default: nil
+	belongs_to :individual
+	belongs_to :company
+	belongs_to :user
+	belongs_to :project
 end
