@@ -16,6 +16,7 @@ class ProjectsController < ApplicationController
     where: {
       id: projects_ids
     }
+  end
 
   def new
     @project = Project.new

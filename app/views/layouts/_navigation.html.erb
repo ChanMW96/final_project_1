@@ -32,11 +32,17 @@
       < else >
       -->
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Log In</a></li>
-        <% if !session[:individual_id].nil? %>
-        <li ><a id='logout' href="#">Log Out</a></li>
-        <% end%>
-        <li><a href="#">Register</a></li>
+      <% if session[:user_id].nil? %>
+        <li><%= link_to 'Log In',new_sessions_path,method: :get %></li>
+        <li><%= link_to 'Sign up',new_user_path,method: :get %></li>
+      <% else %>
+        <% if session[:type] == 1 %>
+          <li><%= link_to current_consumer.name, individual_path(current_consumer.id),method: :get %></li>
+        <% else %>
+          <li><%= link_to current_consumer.name, company_path(current_consumer.id),method: :get %></li>
+        <% end %>
+        <li ><%= link_to 'Log Out',sessions_path,method: :delete %></li>
+      <% end%>
       </ul>
     </div>
   </div>
